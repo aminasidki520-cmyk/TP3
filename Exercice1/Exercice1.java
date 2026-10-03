@@ -8,16 +8,20 @@ public class Exercice1{
         }
     }
     public static int[] sortIntegers(int[] arr){
-        int[] sortedArr = new int[arr.length];
+        int[] sortedArr = arr.clone();
 
         for(int i = 0 ; i<arr.length ; i++){
-            int max = arr[i];
+            int maxIndex = i;
             for(int j = i+1 ; j<arr.length  ; j++){
-                if(arr[j]>max){
-                    max=arr[j];
+                if(arr[j]>arr[maxIndex]){
+                    maxIndex=j;
+
                 }
             };
-            sortedArr[i] = max;
+            int tempVal = sortedArr[i];
+            sortedArr[i] = arr[maxIndex];
+            sortedArr[maxIndex] = tempVal;
+
         };
         return sortedArr;
     }
